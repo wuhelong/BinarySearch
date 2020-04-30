@@ -15,7 +15,7 @@ public extension Collection where Index: Strideable  {
     predicate: (T,T) -> Bool = {(val1, val2) -> Bool in return val1 == val2}
     )-> Index? {
       var left = startIndex
-      var right = endIndex - 1
+      var right = endIndex.advanced(by: -1)
       while (left <= right) {
         let mid = index(left, offsetBy: distance(from: left, to: right) / 2)
         let currentValue:T = extract(self[mid])
@@ -42,7 +42,7 @@ public extension Collection where Index: Strideable  {
     predicate: (T,T) -> Bool = {(val1, val2) -> Bool in return val1 == val2}
     )-> Index? {
       var left = startIndex
-      var right = endIndex - 1
+      var right = endIndex.advanced(by: -1)
       while (left <= right) {
         let mid = index(left, offsetBy: distance(from: left, to: right) / 2)
         let currentValue:T = extract(self[mid])
@@ -72,7 +72,7 @@ public extension Collection where Index: Strideable  {
     predicate: (T,T) -> Bool = {(val1, val2) -> Bool in return val1 == val2}
     )-> Index? {
       var left = startIndex
-      var right = endIndex - 1
+      var right = endIndex.advanced(by: -1)
       while (left <= right) {
         let mid = index(left, offsetBy: distance(from: left, to: right) / 2)
         let currentValue:T = extract(self[mid])
